@@ -8,7 +8,11 @@ public class TankController : MonoBehaviour
     public float MoveSpeed
     {
         get => _moveSpeed;
-        set => _moveSpeed = value;
+        set
+        {
+            value = Mathf.Clamp(value, 0.1f, 3);
+            _moveSpeed = value;
+        }
     }
 
     [SerializeField] float _turnSpeed = 2f;
