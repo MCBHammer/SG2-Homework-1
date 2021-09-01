@@ -5,6 +5,12 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = .25f;
+    public float MoveSpeed
+    {
+        get => _moveSpeed;
+        set => _moveSpeed = value;
+    }
+
     [SerializeField] float _turnSpeed = 2f;
 
     Rigidbody _rb = null;
