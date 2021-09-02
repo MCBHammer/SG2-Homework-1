@@ -30,7 +30,7 @@ public abstract class PowerUpBase : MonoBehaviour
     protected virtual void Movement(Rigidbody rb)
     {
         //calculate rotation
-        Quaternion turnOffset = Quaternion.Euler(0, _movementSpeed, 0);
+        Quaternion turnOffset = Quaternion.Euler(0, 0, _movementSpeed);
         rb.MoveRotation(_rb.rotation * turnOffset);
     }
 

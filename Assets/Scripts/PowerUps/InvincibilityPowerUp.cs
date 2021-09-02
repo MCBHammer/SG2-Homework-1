@@ -6,13 +6,14 @@ public class InvincibilityPowerUp : PowerUpBase
 {
     //[SerializeField] Renderer TankBody;
     //[SerializeField] Renderer TankTurret;
-    Renderer TankBody;
-    Renderer TankTurret;
 
     [SerializeField] Material Invincible;
     [SerializeField] Material Vulnerable;
 
-    private void Awake()
+    Renderer TankBody;
+    Renderer TankTurret;
+
+    private void Start()
     {
         TankBody = GameObject.Find("Tank/Art/Body").GetComponent<Renderer>();
         TankTurret = GameObject.Find("Tank/Art/Turret").GetComponent<Renderer>();
