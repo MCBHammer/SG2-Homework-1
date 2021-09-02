@@ -111,7 +111,7 @@ MonoBehaviour:
   _powerupDuration: 5
   _movementSpeed: 1
   _powerupParticles: {fileID: 0}
-  _powerupSound: {fileID: 0}
+  _powerupSound: {fileID: 8300000, guid: e88595fb8f2b32548bb1d6794dbbb772, type: 3}
   Invincible: {fileID: 2100000, guid: cee745803cc93fa4db46cd887805532b, type: 2}
   Vulnerable: {fileID: 2100000, guid: b1310ba89d583b1449ae1c0bf6e5b4f0, type: 2}
 --- !u!54 &6121187224514757705
