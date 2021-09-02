@@ -41,7 +41,8 @@ public class Enemy : MonoBehaviour
         //particles
         if(_impactParticles != null)
         {
-            _impactParticles = Instantiate(_impactParticles, transform.position, Quaternion.identity);
+            //_impactParticles = Instantiate(_impactParticles, transform.position, Quaternion.identity);
+            ParticleHelper.particlePlay(_impactParticles);
         }
         //audio TODO - consider Object Pooling for performance
         if(_impactSound != null)

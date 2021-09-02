@@ -61,7 +61,8 @@ public abstract class PowerUpBase : MonoBehaviour
         //particles
         if (_powerupParticles != null)
         {
-            _powerupParticles = Instantiate(_powerupParticles, transform.position, Quaternion.identity);
+            //_powerupParticles = Instantiate(_powerupParticles, transform.position, Quaternion.identity);
+            ParticleHelper.particlePlay(_powerupParticles);
         }
         //audio TODO - consider Object Pooling for performance
         if (_powerupSound != null)
