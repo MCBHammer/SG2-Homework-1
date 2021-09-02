@@ -2,17 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvincibilityPowerUp : MonoBehaviour
+public class InvincibilityPowerUp : PowerUpBase
 {
-    // Start is called before the first frame update
-    void Start()
+    //[SerializeField] Renderer TankBody;
+    //[SerializeField] Renderer TankTurret;
+    Renderer TankBody;
+    Renderer TankTurret;
+
+    [SerializeField] Material Invincible;
+    [SerializeField] Material Vulnerable;
+
+    private void Awake()
+    {
+        TankBody = GameObject.Find("Tank/Art/Body").GetComponent<Renderer>();
+        TankTurret = GameObject.Find("Tank/Art/Turret").GetComponent<Renderer>();
+    }
+    protected override void PowerUp(Player player)
     {
         
+        TankBody.material = Invincible;
+        TankTurret.material = Invincible;
+        player.isInvincible = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void PowerDown(Player player)
     {
-        
+        TankBody.material = Vulnerable;
+        TankTurret.material = Vulnerable;
+        player.isInvincible = false;
     }
 }

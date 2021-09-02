@@ -15,6 +15,7 @@ public abstract class PowerUpBase : MonoBehaviour
     [SerializeField] AudioClip _powerupSound;
 
     protected Rigidbody _rb;
+    Player player;
 
     private void Awake()
     {
@@ -35,7 +36,7 @@ public abstract class PowerUpBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Player player = other.gameObject.GetComponent<Player>();
+        player = other.gameObject.GetComponent<Player>();
         if (player != null)
         {
             PowerUp(player);
@@ -44,15 +45,15 @@ public abstract class PowerUpBase : MonoBehaviour
             GetComponent<Collider>().enabled = false;
             GetComponent<Renderer>().enabled = false;
             Feedback();
-            StartCoroutine("Timer");
-            PowerDown(player);
-            gameObject.SetActive(false);
+            StartCoroutine("Timer", _powerupDuration);           
         }
     }
 
-    IEnumerator Timer()
+    private IEnumerator Timer(int duration)
     {
-        yield return new WaitForSeconds(_powerupDuration);
+        yield return new WaitForSeconds(duration);
+        PowerDown(player);
+        gameObject.SetActive(false);
     }
 
     private void Feedback()

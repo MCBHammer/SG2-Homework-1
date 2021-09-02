@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] int _maxHealth = 3;
     int _currentHealth;
+    public bool isInvincible = false;
 
     private int _treasureAmount;
     public int TreasureAmount
@@ -40,7 +41,10 @@ public class Player : MonoBehaviour
 
     public void DecreaseHealth(int amount)
     {
-        _currentHealth -= amount;
+        if(isInvincible == false)
+        {
+            _currentHealth -= amount;
+        }
         Debug.Log("Player's Health: " + _currentHealth);
         if(_currentHealth <= 0)
         {
