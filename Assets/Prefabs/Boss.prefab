@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8371321908238365620}
   - component: {fileID: 8371321908238365623}
   - component: {fileID: 8371321908238365621}
+  - component: {fileID: 9086822201669576029}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,6 +63,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9086822201669576029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8371321908238365622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44b4af319e8cfd4c9c102fffbcc553f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8371321908309891133
 GameObject:
   m_ObjectHideFlags: 0
