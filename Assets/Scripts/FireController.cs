@@ -30,7 +30,7 @@ public class FireController : MonoBehaviour
     {
         //This is convoluted because I want to reuse for the boss
         FireFeedback();
-        Instantiate(_projectile, _tr.position + _tr.forward * 2, Quaternion.Euler(90, 0, -_tr.rotation.eulerAngles.y));
+        Instantiate(_projectile, _tr.position + _tr.forward * 2, Quaternion.Euler(0, _tr.rotation.eulerAngles.y, 0));
         Projectile _projSet = _projectile.GetComponent<Projectile>();
         TankController _tankSet = this.gameObject.GetComponent<TankController>();
         _projSet.MoveSpeed = _tankSet.MoveSpeed * 2;
