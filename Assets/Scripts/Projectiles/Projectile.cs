@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Health _damageInterface = collision.gameObject.GetComponent<Health>();
+        IDamageable _damageInterface = collision.gameObject.GetComponent<IDamageable>();
         if(_damageInterface != null)
         {
             _damageInterface.TakeDamage(_damage);
