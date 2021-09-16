@@ -20,19 +20,16 @@ public class Boss : MonoBehaviour
 
     Rigidbody _rb = null;
 
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody>();
-    }
-
     //Testing NavMesh
     public Transform goal;
 
-    void Start()
+    private void Awake()
     {
+        _rb = GetComponent<Rigidbody>();
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = goal.position;
     }
+
 
     private void FixedUpdate()
     {
