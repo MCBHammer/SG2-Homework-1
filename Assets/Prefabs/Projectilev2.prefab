@@ -4928,7 +4928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 0.3
-  _turnSpeed: 5
+  _turnSpeed: 0.67
   _damage: 1
   _impactSound: {fileID: 8300000, guid: 2f52b3635b0b43c4184ebece99060a11, type: 3}
   _impactParticles: {fileID: 2246944605993534624}

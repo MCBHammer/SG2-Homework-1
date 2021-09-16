@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        //Rotate();
+        Rotate();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -75,17 +75,15 @@ public class Projectile : MonoBehaviour
         _rb.MovePosition(_rb.position + moveOffset);
     }
 
-    //WIP, this is tough
-    /*
     protected virtual void Rotate()
     {
         Vector3 _targetDirection = _target.transform.position - this.gameObject.transform.position;
         float _rotateStep = _turnSpeed * Time.deltaTime;
-        Vector3 _newDirection = Vector3.RotateTowards(transform.right, _targetDirection, _rotateStep, 0f);
+        Vector3 _newDirection = Vector3.RotateTowards(transform.forward, _targetDirection, _rotateStep, 0);
         Debug.DrawRay(transform.position, _newDirection, Color.red);
         this.transform.rotation = Quaternion.LookRotation(_newDirection);
     }
-    */
+    
 
     private void LockOn()
     {
