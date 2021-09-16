@@ -77,11 +77,14 @@ public class Projectile : MonoBehaviour
 
     protected virtual void Rotate()
     {
-        Vector3 _targetDirection = _target.transform.position - this.gameObject.transform.position;
-        float _rotateStep = _turnSpeed * Time.deltaTime;
-        Vector3 _newDirection = Vector3.RotateTowards(transform.forward, _targetDirection, _rotateStep, 0);
-        Debug.DrawRay(transform.position, _newDirection, Color.red);
-        this.transform.rotation = Quaternion.LookRotation(_newDirection);
+        if(_target != null)
+        {
+            Vector3 _targetDirection = _target.transform.position - this.gameObject.transform.position;
+            float _rotateStep = _turnSpeed * Time.deltaTime;
+            Vector3 _newDirection = Vector3.RotateTowards(transform.forward, _targetDirection, _rotateStep, 0);
+            Debug.DrawRay(transform.position, _newDirection, Color.red);
+            this.transform.rotation = Quaternion.LookRotation(_newDirection);
+        } 
     }
     
 
