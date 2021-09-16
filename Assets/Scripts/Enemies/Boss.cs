@@ -26,6 +26,8 @@ public class Boss : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+
+        //When working on randomization, reference https://answers.unity.com/questions/475066/how-to-get-a-random-point-on-navmesh.html for help
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = goal.position;
     }
