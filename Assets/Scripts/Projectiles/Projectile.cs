@@ -71,7 +71,7 @@ public class Projectile : MonoBehaviour
     protected virtual void Move()
     {
         //transform.Translate(-_moveSpeed * Time.deltaTime, 0, 0);
-        Vector3 moveOffset = transform.up * _moveSpeed /** Time.fixedDeltaTime*/;
+        Vector3 moveOffset = transform.forward * _moveSpeed /** Time.fixedDeltaTime*/;
         _rb.MovePosition(_rb.position + moveOffset);
     }
 

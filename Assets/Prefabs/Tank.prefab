@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 8440496598316164398}
   - component: {fileID: 8440496598316164399}
   - component: {fileID: 1622863109}
+  - component: {fileID: 7280815709829306848}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Player
@@ -342,11 +343,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a8fefc63901a5f4ba944ecaf3f8d1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 2568899871306237749, guid: e579059a5409d004ea1abd25731dba5d,
+  _projectile: {fileID: 8333679142873600501, guid: e81923f5e4d7d924593c67c904b561b5,
     type: 3}
   _fireParticles: {fileID: 0}
   _fireSound: {fileID: 8300000, guid: 144a6db8259db5d4c80b313f377d4e67, type: 3}
   _fireCooldown: 0.3
+--- !u!114 &7280815709829306848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8440496598316164394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58dfe929dd4b85f4bbde5cf50255b652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 3
+  _damageParticles: {fileID: 0}
+  _damageSound: {fileID: 0}
+  _deathParticles: {fileID: 0}
+  _deathSound: {fileID: 0}
 --- !u!1 &8440496598614465693
 GameObject:
   m_ObjectHideFlags: 0
