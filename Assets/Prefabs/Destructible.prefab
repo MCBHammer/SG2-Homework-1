@@ -4875,6 +4875,7 @@ GameObject:
   - component: {fileID: 6775569333991590705}
   - component: {fileID: 6775569333991590706}
   - component: {fileID: 2035352782584531866}
+  - component: {fileID: 3416744687272937565}
   m_Layer: 0
   m_Name: Destructible
   m_TagString: Untagged
@@ -4924,3 +4925,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageParticles: {fileID: 8831046099849269847}
+--- !u!208 &3416744687272937565
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6775569333991590708}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
