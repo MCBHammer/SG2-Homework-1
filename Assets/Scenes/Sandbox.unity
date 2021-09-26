@@ -1335,7 +1335,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1746164849}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2
+  m_Radius: 1.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1624,6 +1624,11 @@ PrefabInstance:
       propertyPath: goal
       value: 
       objectReference: {fileID: 1622863112}
+    - target: {fileID: 9086822201669576029, guid: d45cbf408c313f8479262de524590ccd,
+        type: 3}
+      propertyPath: _wanderRadius
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45cbf408c313f8479262de524590ccd, type: 3}
 --- !u!1001 &6775569335113216302

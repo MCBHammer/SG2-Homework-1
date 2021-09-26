@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public class Boss : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = .25f;
+    [SerializeField] float _wanderRadius = 8f;
+
+    NavMeshAgent agent;
     public float MoveSpeed
     {
         get => _moveSpeed;
@@ -21,15 +24,19 @@ public class Boss : MonoBehaviour
     Rigidbody _rb = null;
 
     //Testing NavMesh
-    public Transform goal;
+    //public Transform goal;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
 
         //When working on randomization, reference https://answers.unity.com/questions/475066/how-to-get-a-random-point-on-navmesh.html for help
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+        /*
         agent.destination = goal.position;
+        */
+
+        resetTarget();
     }
 
 
@@ -37,6 +44,22 @@ public class Boss : MonoBehaviour
     {
         MoveTank();
         TurnTank();
+
+        float _distance = agent.remainingDistance;
+        if(_distance != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && _distance <= 5.5)
+        {
+            //check if close enough to target
+            resetTarget();
+        }
+        if(agent.pathStatus == NavMeshPathStatus.PathPartial || agent.pathStatus == NavMeshPathStatus.PathInvalid ||_distance == Mathf.Infinity || _distance <= 5)
+        {
+            //If target is too close or invalid position
+            resetTarget();
+            Debug.Log("Whoops");
+        }
+
+        Debug.Log(agent.destination);
+        Debug.Log(agent.remainingDistance);
     }
 
     public void MoveTank()
@@ -64,5 +87,24 @@ public class Boss : MonoBehaviour
         // apply quaternion to the rigidbody
         _rb.MoveRotation(_rb.rotation * turnOffset);
         */
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destructible _destructible = collision.gameObject.GetComponent<Destructible>();
+        if(_destructible != null)
+        {
+            _destructible.TakeDamage(1);
+        }
+    }
+
+    private void resetTarget()
+    {
+        Vector3 _randomDirection = Random.insideUnitSphere * _wanderRadius;
+        _randomDirection += agent.transform.position;
+        NavMeshHit _hit;
+        NavMesh.SamplePosition(_randomDirection, out _hit, _wanderRadius, 1);
+        Vector3 _finalPosition = _hit.position;
+        agent.destination = _finalPosition;
     }
 }
