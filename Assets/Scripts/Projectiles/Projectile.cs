@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
         set { _moveSpeed = value; }
     }
     Rigidbody _rb;
-    GameObject _target;
+    protected GameObject _target;
     float posY;
 
     private void OnEnable()
@@ -30,9 +30,10 @@ public class Projectile : MonoBehaviour
     {
         Move();
         Rotate();
+        this.transform.position = new Vector3(this.transform.position.x, 1, this.transform.position.z);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         IDamageable _damageInterface = collision.gameObject.GetComponent<IDamageable>();
         if(_damageInterface != null)
@@ -88,7 +89,7 @@ public class Projectile : MonoBehaviour
     }
     
 
-    private void LockOn()
+    protected virtual void LockOn()
     {
         //found some neat code online, trying to rewrite it so I can better understand it. Thanks https://www.codegrepper.com/code-examples/csharp/unity+find+nearest+object
         //using boss instead of enemy because I already have an enemy script from homework 1 and I don't want to delete it
@@ -106,6 +107,6 @@ public class Projectile : MonoBehaviour
             }
         }
         _target = closestBoss.gameObject;
-        Debug.Log(_target.gameObject.name);
+        //Debug.Log(_target.gameObject.name);
     }
 }

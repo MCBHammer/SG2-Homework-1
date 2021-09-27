@@ -58,8 +58,8 @@ public class Boss : MonoBehaviour
             Debug.Log("Whoops");
         }
 
-        Debug.Log(agent.destination);
-        Debug.Log(agent.remainingDistance);
+        //Debug.Log(agent.destination);
+        //Debug.Log(agent.remainingDistance);
     }
 
     public void MoveTank()

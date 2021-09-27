@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653641422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.148, y: -0.084000014, z: -5.2200003}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 8371321908238365620}
@@ -14397,13 +14397,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a14782b03367604da175c26e0799e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 8333679142873600501, guid: e81923f5e4d7d924593c67c904b561b5,
+  _projectile: {fileID: 8414174720956654180, guid: 8b6ba5a3a8a954f44805b8a959c58288,
     type: 3}
-  _fireParticles: {fileID: 0}
+  _fireParticles: {fileID: 653641424}
   _fireSound: {fileID: 8300000, guid: 144a6db8259db5d4c80b313f377d4e67, type: 3}
   _fireCooldown: 0.5
   _lowCooldown: 4
   _highCooldown: 7
+  _projSpeed: 1.5
 --- !u!1 &8371321908309891133
 GameObject:
   m_ObjectHideFlags: 0
