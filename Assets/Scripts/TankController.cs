@@ -5,6 +5,8 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = .25f;
+    [SerializeField] float _stunLength = 2;
+    bool _isStunned = false;
     public float MoveSpeed
     {
         get => _moveSpeed;
@@ -26,8 +28,11 @@ public class TankController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveTank();
-        TurnTank();
+        if(_isStunned == false)
+        {
+            MoveTank();
+            TurnTank();
+        }
     }
 
     public void MoveTank()
@@ -49,5 +54,17 @@ public class TankController : MonoBehaviour
         Quaternion turnOffset = Quaternion.Euler(0, turnAmountThisFrame, 0);
         // apply quaternion to the rigidbody
         _rb.MoveRotation(_rb.rotation * turnOffset);
+    }
+
+    public void Stun()
+    {
+        StartCoroutine(StunTimer(_stunLength));
+    }
+
+    private IEnumerator StunTimer(float _stunTime)
+    {
+        _isStunned = true;
+        yield return new WaitForSeconds(_stunTime);
+        _isStunned = false;
     }
 }
