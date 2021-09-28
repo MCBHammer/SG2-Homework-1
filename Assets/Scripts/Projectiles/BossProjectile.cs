@@ -7,7 +7,8 @@ public class BossProjectile : Projectile
     protected override void LockOn()
     {
         Player player = FindObjectOfType<Player>();
-        _target = player.gameObject;
+        if(player != null)
+            _target = player.gameObject;
         Debug.Log(_target.gameObject.name);
     }
 }

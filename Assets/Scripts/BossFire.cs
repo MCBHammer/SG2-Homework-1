@@ -35,12 +35,12 @@ public class BossFire : FireController
         {
             Instantiate(_projectile, _tr.position + _tr.forward * 5, Quaternion.Euler(0, _tr.rotation.eulerAngles.y, 0));
             Projectile _projSet = _projectile.GetComponent<BossProjectile>();
-            Debug.Log(_projSet.MoveSpeed);
+            //Debug.Log(_projSet.MoveSpeed);
         } else
         {
             Instantiate(_specialProj, _tr.position + _tr.forward * 5, Quaternion.Euler(0, _tr.rotation.eulerAngles.y, 0));
             Projectile _projSet = _specialProj.GetComponent<BossProjectile>();
-            Debug.Log(_projSet.MoveSpeed);
+            //Debug.Log(_projSet.MoveSpeed);
         }
         
         /*

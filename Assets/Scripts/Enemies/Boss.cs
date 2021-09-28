@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = .25f;
     [SerializeField] float _wanderRadius = 8f;
+    [SerializeField] AudioClip _trampleSound;
 
     NavMeshAgent agent;
     public float MoveSpeed
@@ -95,6 +96,10 @@ public class Boss : MonoBehaviour
         if(_destructible != null)
         {
             _destructible.TakeDamage(1);
+            if (_trampleSound != null)
+            {
+                AudioHelper.PlayClip2D(_trampleSound, .5f);
+            }
         }
     }
 
