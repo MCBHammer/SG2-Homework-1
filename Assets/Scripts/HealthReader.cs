@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HealthReader : MonoBehaviour
 {
+    [SerializeField] GameObject _trackedObject;
+
     float _healthValue;
     Health _healthDetected;
     Slider _healthBar;
@@ -12,16 +14,28 @@ public class HealthReader : MonoBehaviour
     private void Awake()
     {
         _healthBar = GetComponent<Slider>();
+        _healthDetected = _trackedObject.GetComponent<Health>();
     }
+
+    private void OnEnable()
+    {
+        _healthDetected.TookDamage += HealthUpdate;
+    }
+
+    private void OnDisable()
+    {
+        _healthDetected.TookDamage -= HealthUpdate;
+    }
+
     private void Start()
     {
-        //_healthDetected.Health
+         _healthValue = _healthDetected.HealthValue;
         _healthBar.maxValue = _healthValue;
         _healthBar.value = _healthValue;
     }
     // Update is called once per frame
-    void FixedUpdate()
+    private void HealthUpdate(int _damage)
     {
-        _healthBar.value = _healthValue;
+        _healthBar.value -= _damage;
     }
 }
