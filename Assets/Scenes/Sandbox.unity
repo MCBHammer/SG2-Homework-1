@@ -2501,6 +2501,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8371321908238365621, guid: d45cbf408c313f8479262de524590ccd,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371321908238365621, guid: d45cbf408c313f8479262de524590ccd,
+        type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8371321908238365622, guid: d45cbf408c313f8479262de524590ccd,
         type: 3}
       propertyPath: m_Name
@@ -2645,11 +2655,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8440496598316164393, guid: ccdbf67ef3d1512498fd1e422caeedf6,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8440496598316164394, guid: ccdbf67ef3d1512498fd1e422caeedf6,
         type: 3}
       propertyPath: m_Name
       value: Tank
       objectReference: {fileID: 0}
+    - target: {fileID: 8440496598316164398, guid: ccdbf67ef3d1512498fd1e422caeedf6,
+        type: 3}
+      propertyPath: _stunMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c31275e3fc7d7547819e4ee53b71d4a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccdbf67ef3d1512498fd1e422caeedf6, type: 3}
 --- !u!1 &8440496597622412635 stripped

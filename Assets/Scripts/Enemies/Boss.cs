@@ -52,7 +52,7 @@ public class Boss : MonoBehaviour
             //check if close enough to target
             resetTarget();
         }
-        if(agent.pathStatus == NavMeshPathStatus.PathPartial || agent.pathStatus == NavMeshPathStatus.PathInvalid ||_distance == Mathf.Infinity || _distance <= 5)
+        if(agent.pathStatus == NavMeshPathStatus.PathPartial || agent.pathStatus == NavMeshPathStatus.PathInvalid ||_distance == Mathf.Infinity || _distance <= 8)
         {
             //If target is too close or invalid position
             resetTarget();
@@ -111,5 +111,6 @@ public class Boss : MonoBehaviour
         NavMesh.SamplePosition(_randomDirection, out _hit, _wanderRadius, 1);
         Vector3 _finalPosition = _hit.position;
         agent.destination = _finalPosition;
+        Debug.Log(_finalPosition);
     }
 }

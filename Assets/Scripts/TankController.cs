@@ -6,6 +6,10 @@ public class TankController : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = .25f;
     [SerializeField] float _stunLength = 2;
+    [SerializeField] Material _stunMaterial;
+    GameObject _tankBody;
+    GameObject _tankTurret;
+    Material _tankMaterial;
     bool _isStunned = false;
     public float MoveSpeed
     {
@@ -24,6 +28,9 @@ public class TankController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _tankBody = this.transform.Find("Art/Body").gameObject;
+        _tankTurret = this.transform.Find("Art/Turret").gameObject;
+        _tankMaterial = _tankBody.GetComponent<Renderer>().material;
     }
 
     private void FixedUpdate()
@@ -64,7 +71,14 @@ public class TankController : MonoBehaviour
     private IEnumerator StunTimer(float _stunTime)
     {
         _isStunned = true;
+        if(_stunMaterial != null)
+        {
+            _tankBody.GetComponent<Renderer>().material = _stunMaterial;
+            _tankTurret.GetComponent<Renderer>().material = _stunMaterial;
+        }
         yield return new WaitForSeconds(_stunTime);
         _isStunned = false;
+        _tankBody.GetComponent<Renderer>().material = _tankMaterial;
+        _tankTurret.GetComponent<Renderer>().material = _tankMaterial;
     }
 }

@@ -30,7 +30,7 @@ public class ScreenEffects : MonoBehaviour
     {
         StartCoroutine(CameraShake(0.75f, 0.6f, _damage));
         StartCoroutine(VignetteFade(0.75f, 0.4f, _damage));
-        Debug.Log("It's Working!");
+        //Debug.Log("It's Working!");
     }
 
     //A lot of camera shake examples are done in Update, and this was the best coroutine one I could find. Works for me! https://www.gamedeveloper.com/business/different-ways-of-shaking-camera-in-unity

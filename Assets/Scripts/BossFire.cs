@@ -30,7 +30,7 @@ public class BossFire : FireController
     {
         FireFeedback();
         float _prob = Random.value;
-        Debug.Log(_prob);
+        //Debug.Log(_prob);
         if (_prob >= _specialProjChance)
         {
             Instantiate(_projectile, _tr.position + _tr.forward * 5, Quaternion.Euler(0, _tr.rotation.eulerAngles.y, 0));

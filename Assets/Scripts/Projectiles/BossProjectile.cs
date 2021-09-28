@@ -9,6 +9,6 @@ public class BossProjectile : Projectile
         Player player = FindObjectOfType<Player>();
         if(player != null)
             _target = player.gameObject;
-        Debug.Log(_target.gameObject.name);
+        //Debug.Log(_target.gameObject.name);
     }
 }
