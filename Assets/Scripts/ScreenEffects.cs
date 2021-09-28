@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class ScreenEffects : MonoBehaviour
 {
     [SerializeField] GameObject _player;
+    [SerializeField] PostProcessVolume _volume;
+    Vignette _vignette;
     Health _playerHealth;
 
     private void Awake()
     {
         _playerHealth = _player.GetComponent<Health>();
+        _volume.profile.TryGetSettings(out _vignette);
     }
 
     private void OnEnable()
@@ -25,6 +29,7 @@ public class ScreenEffects : MonoBehaviour
     void CameraEffects(int _damage)
     {
         StartCoroutine(CameraShake(0.75f, 0.6f, _damage));
+        StartCoroutine(VignetteFade(0.75f, 0.4f, _damage));
         Debug.Log("It's Working!");
     }
 
@@ -45,5 +50,19 @@ public class ScreenEffects : MonoBehaviour
             //Debug.Log(elapsed);
         }
         transform.position = orignalPosition;
+    }
+
+    private IEnumerator VignetteFade(float duration, float magnitude, float damageScale)
+    {
+        _vignette.intensity.value = magnitude * damageScale;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            _vignette.intensity.value -= Time.deltaTime * duration * damageScale;
+            elapsed += Time.deltaTime;
+            yield return 0;
+            //Debug.Log(elapsed);
+        }
     }
 }
