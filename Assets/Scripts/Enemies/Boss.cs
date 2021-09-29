@@ -184,6 +184,11 @@ public class Boss : MonoBehaviour
             Color _currentColor = Color.Lerp(_BossMaterial, Color.white, t);
             _BossBody.GetComponent<Renderer>().material.color = _currentColor;
             _BossTurret.GetComponent<Renderer>().material.color = _currentColor;
+
+            //Explosion
+            Color _explosionColor = this.transform.Find("Art/Explosion").gameObject.GetComponent<Renderer>().material.color;
+            _explosionColor.a = Mathf.Lerp(0, 0.15f, t);
+            this.transform.Find("Art/Explosion").gameObject.GetComponent<Renderer>().material.color = _explosionColor;
             yield return null;
         }
 
@@ -202,7 +207,6 @@ public class Boss : MonoBehaviour
             float t = fadeTime / 0.75f;
             Color _explosionColor = this.transform.Find("Art/Explosion").gameObject.GetComponent<Renderer>().material.color;
             _explosionColor.a = Mathf.Lerp(1, 0, t);   
-            //_explosionColor.a = 1;
             this.transform.Find("Art/Explosion").gameObject.GetComponent<Renderer>().material.color = _explosionColor;
             yield return null;
         }
