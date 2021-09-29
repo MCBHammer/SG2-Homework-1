@@ -5071,6 +5071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 0.15
+  _stunLength: 2
+  _stunMaterial: {fileID: 2100000, guid: 9c31275e3fc7d7547819e4ee53b71d4a, type: 2}
   _turnSpeed: 2
 --- !u!114 &8440496598316164399
 MonoBehaviour:
@@ -5119,7 +5121,7 @@ MonoBehaviour:
   _damageParticles: {fileID: 0}
   _damageSound: {fileID: 0}
   _deathParticles: {fileID: 0}
-  _deathSound: {fileID: 0}
+  _deathSound: {fileID: 8300000, guid: 356bd9a428aee25479c22a755cfc7140, type: 3}
 --- !u!1 &8440496598614465693
 GameObject:
   m_ObjectHideFlags: 0
