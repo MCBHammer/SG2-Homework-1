@@ -106,7 +106,8 @@ public class Projectile : MonoBehaviour
                 closestBoss = currentBoss;
             }
         }
-        _target = closestBoss.gameObject;
+        if(closestBoss != null)
+            _target = closestBoss.gameObject;
         //Debug.Log(_target.gameObject.name);
     }
 }
