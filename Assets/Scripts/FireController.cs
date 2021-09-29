@@ -8,6 +8,8 @@ public class FireController : MonoBehaviour
     [SerializeField] ParticleSystem _fireParticles;
     [SerializeField] AudioClip _fireSound;
     [SerializeField] float _fireCooldown = 0.5f;
+    [SerializeField] float _stunLength = 2;
+    bool _isStunned = false;
     bool coolDownBool = false;
     protected Transform _tr;
 
@@ -19,7 +21,7 @@ public class FireController : MonoBehaviour
     private void Update()
     {
         //in Update instead of FixedUpdate so input works properly every time
-        if (Input.GetKeyDown(KeyCode.Space) && coolDownBool == false)
+        if (Input.GetKeyDown(KeyCode.Space) && coolDownBool == false && _isStunned == false)
         {
             Fire();
             StartCoroutine("FireCooldown", _fireCooldown);
@@ -56,5 +58,17 @@ public class FireController : MonoBehaviour
         {
             AudioHelper.PlayClip2D(_fireSound, .15f);
         }
+    }
+
+    public void Stun()
+    {
+        StartCoroutine(StunTimer(_stunLength));
+    }
+
+    private IEnumerator StunTimer(float _stunTime)
+    {
+        _isStunned = true;
+        yield return new WaitForSeconds(_stunTime);
+        _isStunned = false;
     }
 }
