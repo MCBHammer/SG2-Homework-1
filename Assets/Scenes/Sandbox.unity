@@ -991,6 +991,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 515384751}
   m_CullTransparentMesh: 0
+--- !u!198 &703402889 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 703402889, guid: ccdbf67ef3d1512498fd1e422caeedf6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8440496597622412634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &717551869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,6 +1363,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048128534}
   m_CullTransparentMesh: 0
+--- !u!198 &1081902322 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1081902322, guid: ccdbf67ef3d1512498fd1e422caeedf6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8440496597622412634}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1085193794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2446,6 +2458,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1746164850, guid: d45cbf408c313f8479262de524590ccd, type: 3}
+      propertyPath: _health
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8371321908238365620, guid: d45cbf408c313f8479262de524590ccd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2590,6 +2606,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7280815709829306848, guid: ccdbf67ef3d1512498fd1e422caeedf6,
+        type: 3}
+      propertyPath: _damageParticles
+      value: 
+      objectReference: {fileID: 703402889}
+    - target: {fileID: 7280815709829306848, guid: ccdbf67ef3d1512498fd1e422caeedf6,
+        type: 3}
+      propertyPath: _deathParticles
+      value: 
+      objectReference: {fileID: 1081902322}
+    - target: {fileID: 7280815709829306848, guid: ccdbf67ef3d1512498fd1e422caeedf6,
+        type: 3}
+      propertyPath: _damageSound
+      value: 
+      objectReference: {fileID: 8300000, guid: dc414220c5babbf458a7064ecd6b1645, type: 3}
     - target: {fileID: 8440496598316164392, guid: ccdbf67ef3d1512498fd1e422caeedf6,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -99,10 +99,13 @@ public class Boss : MonoBehaviour
         }
 
         //Keeping the if statement compact
-        float _playerDistance = (_player.transform.position - this.transform.position).sqrMagnitude;
-        if (_playerDistance < _detectDistance * _detectDistance  && _isAttack2 == false)
+        if(_player != null)
         {
-            StartCoroutine(Attack2(_attack2Time, _runAwayTime));
+            float _playerDistance = (_player.transform.position - this.transform.position).sqrMagnitude;
+            if (_playerDistance < _detectDistance * _detectDistance && _isAttack2 == false)
+            {
+                StartCoroutine(Attack2(_attack2Time, _runAwayTime));
+            }
         }
         //Debug.Log(agent.destination);
         //Debug.Log(agent.remainingDistance);
