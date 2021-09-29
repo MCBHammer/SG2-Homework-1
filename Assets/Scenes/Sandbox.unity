@@ -2518,6 +2518,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8468659305883373063, guid: d45cbf408c313f8479262de524590ccd,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468659305883373063, guid: d45cbf408c313f8479262de524590ccd,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8468659305883373063, guid: d45cbf408c313f8479262de524590ccd,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45cbf408c313f8479262de524590ccd, type: 3}
 --- !u!1 &76070828622829120 stripped
