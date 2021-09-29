@@ -4754,6 +4754,85 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &1929275043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1929275044}
+  - component: {fileID: 1929275046}
+  - component: {fileID: 1929275045}
+  m_Layer: 0
+  m_Name: Explosion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1929275044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929275043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5.5, y: 5.5, z: 5.5}
+  m_Children: []
+  m_Father: {fileID: 8371321909539701814}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1929275046
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929275043}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1929275045
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929275043}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f96c55f311842f24397aae68f9e40944, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &2497593763388521339
 GameObject:
   m_ObjectHideFlags: 0
@@ -14348,9 +14427,10 @@ MonoBehaviour:
   _detectDistance: 6
   _trampleSound: {fileID: 8300000, guid: 2f52b3635b0b43c4184ebece99060a11, type: 3}
   _attack2Sound: {fileID: 8300000, guid: 2c87a0d7097a48148a4af4f2731aba50, type: 3}
+  _chargeSound: {fileID: 8300000, guid: 978ed17e550879446a77169757f9a35e, type: 3}
   _attack2Time: 1
   _runAwayTime: 3
-  _attackRadius: 7
+  _attackRadius: 7.5
   _turnSpeed: 2
 --- !u!114 &1746164850
 MonoBehaviour:
@@ -14364,7 +14444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58dfe929dd4b85f4bbde5cf50255b652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 5
+  _health: 15
   _damageParticles: {fileID: 8468659305883373063}
   _damageSound: {fileID: 8300000, guid: 2c87a0d7097a48148a4af4f2731aba50, type: 3}
   _deathParticles: {fileID: 2782802456510535001}
@@ -14408,12 +14488,14 @@ MonoBehaviour:
   _fireParticles: {fileID: 653641424}
   _fireSound: {fileID: 8300000, guid: 144a6db8259db5d4c80b313f377d4e67, type: 3}
   _fireCooldown: 0.5
-  _lowCooldown: 4
-  _highCooldown: 7
+  _lowCooldown: 2
+  _highCooldown: 5
   _projSpeed: 1.5
   _specialProj: {fileID: 5421638009616910012, guid: 2763ab2d746b6344d978dde23db8826b,
     type: 3}
   _specialProjChance: 0.3
+  _chargeTime: 0.5
+  _chargeSound: {fileID: 8300000, guid: cc58ea5ae4beaa447b761d7b291cf8a0, type: 3}
 --- !u!1 &8371321908309891133
 GameObject:
   m_ObjectHideFlags: 0
@@ -14761,6 +14843,7 @@ Transform:
   - {fileID: 8371321908997114382}
   - {fileID: 8371321908602494125}
   - {fileID: 8371321908309891130}
+  - {fileID: 1929275044}
   m_Father: {fileID: 8371321908238365620}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

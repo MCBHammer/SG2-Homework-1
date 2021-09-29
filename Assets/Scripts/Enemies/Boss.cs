@@ -11,6 +11,7 @@ public class Boss : MonoBehaviour
     [SerializeField] float _detectDistance = 5;
     [SerializeField] AudioClip _trampleSound;
     [SerializeField] AudioClip _attack2Sound;
+    [SerializeField] AudioClip _chargeSound;
 
     [SerializeField] float _attack2Time = 2;
     [SerializeField] float _runAwayTime = 4;
@@ -166,6 +167,10 @@ public class Boss : MonoBehaviour
     {
         _isAttack2 = true;
         Attack2Start?.Invoke();
+        if (_chargeSound != null)
+        {
+            AudioHelper.PlayClip2D(_chargeSound, 1f);
+        }
 
         //Texture Change
         float currentTime = 0;
@@ -189,6 +194,18 @@ public class Boss : MonoBehaviour
         _BossTurret.GetComponent<Renderer>().material.color = _BossMaterial;
         agent.isStopped = false;
         RunAway();
+
+        float fadeTime = 0;
+        while (fadeTime < 0.75f)
+        {
+            fadeTime += Time.deltaTime;
+            float t = fadeTime / 0.75f;
+            Color _explosionColor = this.transform.Find("Art/Explosion").gameObject.GetComponent<Renderer>().material.color;
+            _explosionColor.a = Mathf.Lerp(1, 0, t);   
+            //_explosionColor.a = 1;
+            this.transform.Find("Art/Explosion").gameObject.GetComponent<Renderer>().material.color = _explosionColor;
+            yield return null;
+        }
 
         yield return new WaitForSeconds(_runTime);
         _isAttack2 = false;

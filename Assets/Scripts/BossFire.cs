@@ -12,6 +12,7 @@ public class BossFire : FireController
     [SerializeField] GameObject _specialProj;
     [SerializeField] float _specialProjChance = 0.3f;
     [SerializeField] float _chargeTime = 0.5f;
+    [SerializeField] AudioClip _chargeSound;
 
     float _prob;
     Boss _boss;
@@ -76,6 +77,11 @@ public class BossFire : FireController
         Color _projMaterial = _projectile.transform.Find("Art/Sphere").gameObject.GetComponent<Renderer>().sharedMaterial.color;
         Color _specialProjMaterial = _specialProj.transform.Find("Art/Sphere").gameObject.GetComponent<Renderer>().sharedMaterial.color;
         Color _currentColor;
+
+        if (_chargeSound != null)
+        {
+            AudioHelper.PlayClip2D(_chargeSound, .5f);
+        }
 
         float currentTime = 0;
         while (currentTime < _chargeTime)
